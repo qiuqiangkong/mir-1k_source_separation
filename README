@@ -1,0 +1,20 @@
+MIR-1k source separation (DNN, RNN)
+-----------------------------------
+Datasets
+* Download dataset https://sites.google.com/site/unvoicedsoundseparation/mir-1k
+
+Prerequisites:
+* Hat toolbox: https://github.com/qiuqiangkong/Hat
+
+-----------------------------------
+Run the code:
+0. modify the paths in config.py
+1. run prepare_data.py
+2. run main_dnn.py
+3. run main_recover.py
+
+-----------------------------------
+These files are MIT liscenced. 
+qiuqiangkong@gmail.com
+
+-----------------------------------
