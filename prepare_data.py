@@ -14,7 +14,7 @@ import cPickle
 import config as cfg
 import wavio
 import matplotlib.pyplot as plt
-from Hat.preprocessing import mat_2d_to_3d
+from hat.preprocessing import mat_2d_to_3d
 
 
 ### Extract features
@@ -188,7 +188,7 @@ def write_wav( x, fs, path ):
 ### Main function
 if __name__ == '__main__':
     if not os.path.exists( cfg.fe_fft_fd ): os.makedirs( cfg.fe_fft_fd )
-    if not os.path.exists( 'Results' ): os.makedirs( 'Results' )
+    if not os.path.exists( cfg.results_fd ): os.makedirs( cfg.results_fd )
     if not os.path.exists( cfg.fe_fft_fd + '/mix' ): os.makedirs( cfg.fe_fft_fd + '/mix' )
     if not os.path.exists( cfg.fe_fft_fd + '/left' ): os.makedirs( cfg.fe_fft_fd + '/left' )
     if not os.path.exists( cfg.fe_fft_fd + '/right' ): os.makedirs( cfg.fe_fft_fd + '/right' )

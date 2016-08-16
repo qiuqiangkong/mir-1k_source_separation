@@ -14,14 +14,14 @@ from mir_eval.separation import bss_eval_sources
 import pickle
 import sys
 sys.path.append('/user/HS229/qk00006/my_code2015.5-/python/Hat')
-from Hat.models import *
-from Hat.layers.core import *
-from Hat.layers.cnn import *
-from Hat.layers.pool import *
-from Hat.callbacks import *
-from Hat import serializations
-from Hat.preprocessing import mat_2d_to_3d
-import Hat.backend as K
+from hat.models import *
+from hat.layers.core import *
+from hat.layers.cnn import *
+from hat.layers.pool import *
+from hat.callbacks import *
+from hat import serializations
+from hat.preprocessing import mat_2d_to_3d
+import hat.backend as K
 import config as cfg
 import os
 import prepare_data as pp_data
@@ -31,7 +31,7 @@ from main_dnn import mul
 
 # hyper params
 n_time=11
-md = serializations.load( 'Md/md10.p' )
+md = serializations.load( cfg.md_fd+'/md10.p' )
 fe_fd = cfg.fe_fft_fd
 
 # all songs
@@ -77,8 +77,8 @@ for na in names:
                 print sdr, sir, sar, perm
                 
                 # write out wavs
-                pp_data.write_wav( s_gt_mix, 16000., 'Results/' + na + '_gt_mix.wav' )
-                pp_data.write_wav( s_pred_left, 16000., 'Results/' + na + '_pred_left.wav' )
-                pp_data.write_wav( s_pred_right, 16000., 'Results/' + na + '_pred_right.wav' )
+                pp_data.write_wav( s_gt_mix, 16000., cfg.results_fd + '/' + na + '_gt_mix.wav' )
+                pp_data.write_wav( s_pred_left, 16000., cfg.results_fd + '/' + na + '_pred_left.wav' )
+                pp_data.write_wav( s_pred_right, 16000., cfg.results_fd + '/' + na + '_pred_right.wav' )
 
                 pause
