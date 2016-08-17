@@ -3,8 +3,8 @@ MIR-1k source separation (DNN, RNN)
 Datasets
 * Download dataset https://sites.google.com/site/unvoicedsoundseparation/mir-1k
 
-Prerequisites:
-* Hat toolbox: https://github.com/qiuqiangkong/Hat
+Prerequisites
+* pip install hat --upgrade
 
 -----------------------------------
 Run the code:

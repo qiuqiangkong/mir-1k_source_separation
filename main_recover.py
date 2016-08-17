@@ -12,8 +12,6 @@ import matplotlib.pyplot as plt
 from scipy.io.wavfile import write
 from mir_eval.separation import bss_eval_sources
 import pickle
-import sys
-sys.path.append('/user/HS229/qk00006/my_code2015.5-/python/Hat')
 from hat.models import *
 from hat.layers.core import *
 from hat.layers.cnn import *

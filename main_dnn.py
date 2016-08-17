@@ -35,7 +35,6 @@ def loss_func( out_nodes, inter_nodes, gt_nodes ):
     [in0, mask_pred1, mask_pred2] = inter_nodes
     [gt1, gt2] = gt_nodes
     return obj.norm_lp( in0*mask_pred1, gt1, 2 ) + obj.norm_lp( in0*mask_pred2, gt2, 2 )
-    #return obj.beta_divergence( in0*mask_pred1, gt1, 0.6 ) + obj.beta_divergence( in0*mask_pred2, gt2, 0.6 )
     
 # lambda function
 def mul( inputs ):
@@ -47,12 +46,12 @@ def train_bss():
     # DO NOT DELETE! Load data for speed up
     # you can annotate the code below after run the first time. 
     
+    
     t1 = time.time()
     tr_X, tr_y_left, tr_y_right = pp_data.get_all_3d_data( cfg.fe_fft_fd, n_time, tr_phase=True )
     cPickle.dump( [tr_X, tr_y_left, tr_y_right], open( cfg.results_fd+'/tmp.p', 'wb' ), protocol=cPickle.HIGHEST_PROTOCOL )
     t2 = time.time()
     print 'loading data time: ', t2-t1
-    pause
     
     
     # load data
@@ -73,7 +72,7 @@ def train_bss():
     out_c = Lambda( mul )( [c1, in1] )
     
     md = Model( in_layers=[in1], out_layers=[out_b, out_c], inter_layers=[in1, b1, c1] )
-    #md.plot_connection()
+    #md.plot_connection()   # if you are using cpu, you can plot this
     md.summary()
     
     # validation
